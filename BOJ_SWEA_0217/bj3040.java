@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main_3040_김정훈 {
+public class bj3040 {
 	static boolean isSelected[] = new boolean[9];
 	static StringBuilder sb = new StringBuilder();
 	static int data[] = new int[9];
