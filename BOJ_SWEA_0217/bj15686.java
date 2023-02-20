@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class Main_15686_김정훈 {
+public class bj15686 {
 	static int n, m;
 	static int data[][];
 	static List<int[]> chicken, home;
