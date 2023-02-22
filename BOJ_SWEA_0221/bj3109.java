@@ -1,4 +1,4 @@
-package algorithm_java.BOJ_SWEA_2021;
+package algorithm_java.BOJ_SWEA_0221;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
