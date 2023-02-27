@@ -12,7 +12,7 @@ public class bj2617 {
 	static int half;
 	
 	public static int bead(int curr, boolean visited[], ArrayList<Integer>[] list) {
-		int sum = 0;
+		int sum = 0; // 나보다 무겁거나 or 가벼운 구슬 count
 		
 		visited[curr] = true;
 		
@@ -34,8 +34,8 @@ public class bj2617 {
         m = Integer.parseInt(st.nextToken());
         half = (n+1)/2;
         
-        ArrayList<Integer>[] list_light = new ArrayList[n+1];
-        ArrayList<Integer>[] list_heavy = new ArrayList[n+1];
+        ArrayList<Integer>[] list_light = new ArrayList[n+1]; // 해당 구슬보다 가벼운 구슬
+        ArrayList<Integer>[] list_heavy = new ArrayList[n+1]; // 해당 구슬보다 무거운 구슬
         
         for(int i = 1; i < n+1; i++) {
         	list_light[i] = new ArrayList<>();
@@ -52,7 +52,7 @@ public class bj2617 {
         
         int result = 0;
         for(int i = 1; i < n+1; i++) {
-        	if(bead(i, new boolean[n+1],list_light) >= half || 
+        	if(bead(i, new boolean[n+1],list_light) >= half || // 무겁거나 가벼운 구슬이 전체의 반 이상이면 중간 x
         			bead(i, new boolean[n+1],list_heavy) >= half)
         		result++;
         }
