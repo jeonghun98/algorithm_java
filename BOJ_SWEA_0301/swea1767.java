@@ -14,7 +14,6 @@ public class swea1767 {
     static int dy[] = {0,1,0,-1};
 
     static ArrayList<pos> core;
-    static boolean cell_dir_false[][];
 
     static int Max_connect;
     static int result;
@@ -38,18 +37,8 @@ public class swea1767 {
             cell[i] = Arrays.copyOf(data[i], data[i].length);
     }
 
-    public static void cell_init(int data[][]) { // core가 전선을 연결하지 못 할 방향을 처음부터 체크
-        copy(data);
 
-        for(int i = 0; i < core.size(); i++) {
-            for(int j = 0; j < 4; j++) {
-                if(!powercell(i,j,true))
-                    cell_dir_false[i][j] = true;
-            }
-        }
-    }
-
-    public static boolean powercell(int core_index, int dir, boolean cell_init) { // 해당 index의 코어 전선 연결 확인 / wire : 전선 길이
+    public static boolean powercell(int core_index, int dir) { // 해당 index의 코어 전선 연결 확인 / wire : 전선 길이
         wire = 0;
         boolean success = true;
 
@@ -65,8 +54,6 @@ public class swea1767 {
                 success = false;
                 break;
             }
-
-            if(cell_init) continue; // cell init과 같이 사용하기 위해서 true / false로 구별 => 처음 체크하는거면 continue;
             wire++;
             cell[nx][ny] = 1;
         }
@@ -96,7 +83,7 @@ public class swea1767 {
                 return;
 
             //전선이 연결 할 수 있는 방향이고 현재 연결 가능하다면 update하고 재귀함수
-            if(!cell_dir_false[cnt][i] && powercell(cnt, i, false))
+            if(powercell(cnt, i))
                 direction(cnt+1, cell, total_wire+wire, connect_core+1); // 현재 core가 연결한 전선 길이 더해서 update, 연결된 core + 1
 
                 // 전선을 연결할 수 없는 방향 이거나 현재 연결이 안된다면 update x하고 계속 진행
@@ -128,10 +115,6 @@ public class swea1767 {
                         core.add(new pos(i,j));
                 }
             }
-
-
-            cell_dir_false = new boolean[core.size()][4];	// core가 처음부터 진행하지 못할 방향 체크
-            cell_init(data);
 
             Max_connect = 0; // 가장 많은 core연결 수
             result = Integer.MAX_VALUE;
