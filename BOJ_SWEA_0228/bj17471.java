@@ -30,7 +30,7 @@ public class bj17471 {
             q.add(i); visited[i] = true;
             break;
         }
-        // 다른 구역의 위치를 q에 넣기(2개 넣기)
+        // 각 구역의 위치를 q에 넣기(각각 1개씩)
 
         while(!q.isEmpty()) {
             int now = q.poll();
