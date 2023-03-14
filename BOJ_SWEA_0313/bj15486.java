@@ -33,5 +33,4 @@ public class bj15486 {
 		}
 		System.out.println(dp[1]);
 	}
-
 }
