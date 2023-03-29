@@ -14,18 +14,18 @@ public class bj3085 {
 	static int dy[] = {0,1};
 	
 	static int max_len;
-	public static void candy_max(int x, int y) {
+	public static void candy_max(int x, int y) { //현재 위치의 행과 열의 max 값 찾기
 		
 		for(int i = 0; i < 2; i++) {
 			int len = 1;
 			int nx = x, ny = y;
 			
-			if(i == 0) nx = 0;
-			else ny = 0;
+			if(i == 0) nx = 0; //현재 열 확인
+			else ny = 0;	   //현재 행 확인
 			
 			char tmp = data[nx][ny];
 			
-			for(int j = 0; j < n-1 ; j++) {
+			for(int j = 0; j < n-1 ; j++) { // max 값 찾기
 				nx += dx[i];
 				ny += dy[i];
 				if(tmp != data[nx][ny]) {
@@ -46,21 +46,21 @@ public class bj3085 {
 		data[nx][ny] = tmp;
 	}
 	
-	public static void change() {
+	public static void Bomboni() { //봄보니
 		for(int x = 0; x < n; x++) {
 			for(int y = 0; y < n; y++) {
-				candy_max(x,y);
+				candy_max(x,y); // 사탕 최대
 				
-				for(int i = 0; i < 2; i++) {
+				for(int i = 0; i < 2; i++) { //오른쪽하고 아래만 확인
 					int nx = x + dx[i];
 					int ny = y + dy[i];
 					if(nx >= n || ny >= n) break;
-					if(data[nx][ny] == data[x][y]) continue;
+					if(data[nx][ny] == data[x][y]) continue; // 같다면 continue
 					
-					swap(x,y,nx,ny);
-					candy_max(x,y);
+					swap(x,y,nx,ny); // 다르다면 swap
+					candy_max(x,y);  // 바꾼위치 둘다 행열 max값 찾기
 					candy_max(nx,ny);
-					swap(nx,ny,x,y);
+					swap(nx,ny,x,y); // 다시 원상복귀
 				}
 			}
 		}
@@ -78,7 +78,7 @@ public class bj3085 {
 		}
 		
 		max_len = 0;
-		change();
+		Bomboni();
 		System.out.println(max_len);
 	}
 
