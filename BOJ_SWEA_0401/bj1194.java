@@ -65,7 +65,7 @@ public class bj1194 {
                     continue;
                 }
 
-                //빈칸, 문, 출구
+                //빈칸, 출구
                 if(dp[nx][ny][now.keys] > dp[now.x][now.y][now.keys] + 1) {
                     q.add(new Pos(nx,ny,now.keys));
                     dp[nx][ny][now.keys] = dp[now.x][now.y][now.keys] + 1;
