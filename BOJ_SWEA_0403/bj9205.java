@@ -52,24 +52,17 @@ public class bj9205 {
         for(int tc = 1; tc <= t; tc++) {
             n = Integer.parseInt(br.readLine());
             q = new ArrayDeque<>();
+
             arr = new Pos[n];
-
-            st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-            q.add(new Pos(x,y));
-
             visited = new boolean[n];
-            for(int i = 0; i < n; i++) {
+            int x = 0, y = 0;
+            for(int i = 0; i < n+2; i++) {
                 st = new StringTokenizer(br.readLine());
                 x = Integer.parseInt(st.nextToken());
                 y = Integer.parseInt(st.nextToken());
-                arr[i] = new Pos(x,y);
+                if(i == 0) q.add(new Pos(x,y));
+                else if(i < n+1) arr[i-1] = new Pos(x,y);
             }
-
-            st = new StringTokenizer(br.readLine());
-            x = Integer.parseInt(st.nextToken());
-            y = Integer.parseInt(st.nextToken());
 
             System.out.println(bfs(x,y) == true ? "happy" : "sad");
 
