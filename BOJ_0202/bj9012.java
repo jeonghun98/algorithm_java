@@ -1,4 +1,4 @@
-package algorithm_java;
+package algorithm_java.BOJ_0202;
 
 import java.io.BufferedReader;
 import java.io.IOException;
