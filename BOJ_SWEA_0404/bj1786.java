@@ -23,7 +23,7 @@ public class bj1786 { // 찾기 KMP
                 table[i] = idx;
             }
         }
-//		System.out.println(Arrays.toString(table));
+//		System.out.println(Arrays.toString(table)); 
         return table;
     }
 
