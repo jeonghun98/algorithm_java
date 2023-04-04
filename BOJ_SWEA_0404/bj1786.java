@@ -65,7 +65,5 @@ public class bj1786 { // 찾기 KMP
         for(Integer li : list) {
             System.out.print(li + " ");
         }
-
     }
-
 }
