@@ -16,7 +16,7 @@ public class bj15961 {
         for(int i = k; i < n + k; i++){
             int j = i - k;
             if(--sushi_cnt[arr[j]] == 0) cnt--; // k 앞의 초밥 감소 => 해당 종류의 초밥이 0으로 된다면 cnt 감수
-            if(sushi_cnt[arr[i >= n ? i % n : i]]++ == 0) cnt++; // 현재 값 증가 => 증가 전에 종류가 cnt 안되어있다면 cnt 증가
+            if(sushi_cnt[arr[i % n]]++ == 0) cnt++; // 현재 값 증가 => 증가 전에 종류가 cnt 안되어있다면 cnt 증가
             result = Math.max(cnt, result);
         }
         return result;
