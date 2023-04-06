@@ -9,7 +9,7 @@ public class bj15961 {
     static int sushi_cnt[];
     static int arr[];
 
-    public static int rotation(int tmp) {
+/*    public static int rotation(int tmp) {
         int cnt = tmp;
         int result = tmp;
 
@@ -20,7 +20,7 @@ public class bj15961 {
             result = Math.max(cnt, result);
         }
         return result;
-    }
+    } */
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -35,14 +35,23 @@ public class bj15961 {
         sushi_cnt = new int[d+1];
         sushi_cnt[c]++;
         int cnt = 1;
+        int result = 1;
 
-        for(int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
+        for(int i = 0; i < n + k; i++) {
+            if(i < n) arr[i] = Integer.parseInt(br.readLine());
+
             if(i < k) {
                 if(sushi_cnt[arr[i]] == 0) cnt++;
                 sushi_cnt[arr[i]]++;
+                result = cnt;
+            }
+            else {
+                int j = i - k;
+                if(--sushi_cnt[arr[j]] == 0) cnt--;
+                if(sushi_cnt[arr[i % n]]++ == 0) cnt++;
+                result = Math.max(cnt, result);
             }
         }
-        System.out.println(rotation(cnt));
+        System.out.println(result);
     }
 }
