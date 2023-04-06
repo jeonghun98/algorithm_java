@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class bj2098 {
+public class bj2098 { // 외판원 순회 -> 비트 마스킹, DP, 백트래킹
 
 	static int n;
 	static int arr[][];
