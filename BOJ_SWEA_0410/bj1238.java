@@ -26,7 +26,6 @@ public class bj1238 {
 
         while(!pq.isEmpty()) {
             Node now = pq.poll();
-
             if(dis[now.idx] < now.cost) continue;
 
             for(Node next : list[now.idx]) {
@@ -42,9 +41,8 @@ public class bj1238 {
 
     public static int maxStudent(int dis1[], int dis2[]){
         int max = 0;
-        for(int i = 1; i < n+1; i++) {
+        for(int i = 1; i < n+1; i++)
            if(max < dis1[i] + dis2[i]) max = dis1[i] + dis2[i];
-        }
         return max;
     }
     public static void main(String[] args) throws IOException {
@@ -72,7 +70,6 @@ public class bj1238 {
             goHome[a].add(new Node(b, cost));
             goParty[b].add(new Node(a, cost));
         }
-
         System.out.println(maxStudent(dijkstra(goParty), dijkstra(goHome)));
     }
 }
