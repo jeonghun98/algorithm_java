@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-// Baekjoon 1238 파티
+// Baekjoon Online Judge 1238 파티
 public class bj1238 {
     static int n, m, x;
     static final int INF = Integer.MAX_VALUE;
@@ -59,7 +59,7 @@ public class bj1238 {
             goHome[i] = new ArrayList<>();
         }
 
-        // 집 -> party(x) -> 집 의 max 값 구하기
+        // [집 -> party(x) -> 집] 의 max 비용 구하기
         // 1) 집 -> party(x) : 반대로 dijkstra, 파티장에서 모든집으로 간다고 생각 => start 와 end 를 바꿔서 넣어줌
         // 2) party(x) -> 집 : 기본 dijkstra
         for(int i = 0; i < m; i++) {
