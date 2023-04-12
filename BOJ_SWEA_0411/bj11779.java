@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
+// Baekjoon Online Judge 11779 최소비용 구하기 2
 public class bj11779 {
     static int n, m;
     static final int INF = Integer.MAX_VALUE;
@@ -24,14 +25,15 @@ public class bj11779 {
     }
     public static ArrayList<Integer> copyPath(ArrayList<Integer> path) {
         ArrayList<Integer> tmp = new ArrayList<>();
-        for(Integer i : path)
-            tmp.add(i);
+        for(Integer i : path) tmp.add(i);
         return tmp;
     }
     public static Distance[] dijkstra(List<Node> list[], int start){
         PriorityQueue<Node> pq = new PriorityQueue<>((o1, o2) -> o1.cost - o2.cost);
         pq.add(new Node(start, 0));
 
+        // 최단 경로도 저장하기 위해 int distance 가 아닌
+        // ArrayList 가 멤버 변수로 있는 Distance class 를 사용
         Distance d[] = new Distance[n+1];
         for(int i = 1; i < n+1; i++) d[i] = new Distance(INF);
         d[start].dis = 0;
@@ -48,6 +50,9 @@ public class bj11779 {
                 int cost = next.cost + d[now.idx].dis;
                 if(d[next.idx].dis > cost) {
                     d[next.idx].dis = cost;
+
+                    // 최단 비용의 경로 path + 현재 갈 위치
+                    // 경로는 ArrayList -> deepCopy
                     d[next.idx].path = copyPath(d[now.idx].path);
                     d[next.idx].path.add(next.idx);
                     pq.add(new Node(next.idx, cost));
@@ -63,11 +68,13 @@ public class bj11779 {
         for(Integer i : d[end].path)
             System.out.print(i + " ");
     }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = null;
         n = Integer.parseInt(br.readLine());
         m = Integer.parseInt(br.readLine());
+
         List<Node> list[] = new ArrayList[n+1];
         for(int i = 1; i < n+1; i++)
             list[i] = new ArrayList<>();
@@ -79,9 +86,11 @@ public class bj11779 {
             int cost = Integer.parseInt(st.nextToken());
             list[a].add(new Node(b, cost));
         }
+
         st = new StringTokenizer(br.readLine());
         int start = Integer.parseInt(st.nextToken());
         int end = Integer.parseInt(st.nextToken());
+
         print(dijkstra(list, start), end);
     }
 }
