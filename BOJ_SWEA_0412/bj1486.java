@@ -7,7 +7,8 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class bj1486 { // BJ 1486 등산
+// Baekjoon Online Judge 1486 등산
+public class bj1486 {
     static int N,M,T,D;
     static final int INF = Integer.MAX_VALUE;
     static int map[][];
@@ -50,11 +51,11 @@ public class bj1486 { // BJ 1486 등산
 
                 int cost = 0;
                 if(rise) { // 등산
-                    if(next_h > now_h) cost = (next_h-now_h) * (next_h-now_h) + now.cost;
+                    if(next_h > now_h) cost = (int) (Math.pow((next_h-now_h),2) + now.cost);
                     else cost = 1 + now.cost;
                 }
                 else { // 하산
-                    if(next_h < now_h) cost = (next_h-now_h) * (next_h-now_h) + now.cost;
+                    if(next_h < now_h) cost = (int) (Math.pow((next_h-now_h),2) + now.cost);
                     else cost = 1 + now.cost;
                 }
 
@@ -105,6 +106,9 @@ public class bj1486 { // BJ 1486 등산
             }
         }
 
+        // [호텔 -> 산 -> 호텔] D 시간 동안 갈 수 있는 가장 높은 산의 높이
+        // 1) 호텔 -> 산 : 기본 dijkstra
+        // 2) 산 -> 호텔 : 반대로 dijkstra, 호텔에서 산으로 간다고 생각 => 현재 높이와 갈 곳의 높이를 바꿔서 생각해줌
         System.out.println(max_height(dijkstra(true), dijkstra(false)));
     }
 }
