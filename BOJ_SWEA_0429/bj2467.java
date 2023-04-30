@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// Baekjoon Online Judge 2467 용액
 public class bj2467 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,14 +21,14 @@ public class bj2467 {
         int start_a = 0, end_a = n-1;
         long min = Integer.MAX_VALUE;
 
-        while(start < end) {
+        while(start < end) { // 교차될 때까지 반복
             long sum = data[start] + data[end];
             if(min > Math.abs(sum)) {
                 min = Math.abs(sum);
                 start_a = start; end_a = end;
             }
-            if(sum >= 0) end--;
-            else start++;
+            if(sum >= 0) end--; // sum 이 0보다 크다면 감소
+            else start++;       // sum 이 0보다 작다면 증가
         }
 
         System.out.println(data[start_a] + " " + data[end_a]);
