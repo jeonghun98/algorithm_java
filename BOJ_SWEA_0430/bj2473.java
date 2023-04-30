@@ -25,7 +25,7 @@ public class bj2473 {
         long min = Long.MAX_VALUE;
 
         // left, mid, right -> left는 0 ~ n-3까지 반복 & n-2 : mid, n-1 : right
-        A : for(int i = 0; i < n-2; i++) {
+        for(int i = 0; i < n-2; i++) {
             int left = i;
             int mid = i+1;
             int right = n-1;
@@ -38,7 +38,10 @@ public class bj2473 {
                 }
                 if(sum > 0) right--;    // 0보다 크다면 감소
                 else if(sum < 0) mid++; // 0보다 작다면 증가
-                else break A;           // 0이라면 break
+                else {           // 0이라면 break
+                    System.out.println(data[ml] + " " + data[mm] + " " + data[mr]);
+                    return;
+                }
             }
         }
         System.out.println(data[ml] + " " + data[mm] + " " + data[mr]);
