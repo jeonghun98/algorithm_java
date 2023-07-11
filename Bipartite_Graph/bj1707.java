@@ -1,18 +1,18 @@
-package algorithm_java.이분그래프;
+package algorithm_java.Bipartite_Graph;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
+// Baekjoon Online Judge 1707 이분 그래프
 public class bj1707 {
     static ArrayList<Integer> [] list;
     public static void dfs(int color[], int x, int c) {
         color[x] = c;
         for(int i : list[x]) {
             if(color[i] == 0) {
-                dfs(color, i, 3-c);
+                dfs(color, i, 3-c); // 0 => 1,2
             }
         }
     }
@@ -42,7 +42,7 @@ public class bj1707 {
             int color[] = new int[V+1];
             for(int i = 1; i <= V; i++) {
                 if(color[i] == 0) {
-                    dfs(color, i, 1);
+                    dfs(color, i, 1); // 0 => 1,2
                 }
             }
 
