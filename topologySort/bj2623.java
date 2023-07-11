@@ -1,4 +1,4 @@
-package algorithm_java.BOJ_SWEA_0610;
+package algorithm_java.topologySort;
 
 import java.io.BufferedReader;
 import java.io.IOException;
