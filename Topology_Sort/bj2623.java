@@ -1,4 +1,4 @@
-package algorithm_java.topologySort;
+package algorithm_java.Topology_Sort;
 
 import java.io.BufferedReader;
 import java.io.IOException;
