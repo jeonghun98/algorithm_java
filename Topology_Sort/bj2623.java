@@ -53,6 +53,7 @@ public class bj2623 {
         for(int i = 0; i < m; i++) {
             st = new StringTokenizer(br.readLine());
             int k = Integer.parseInt(st.nextToken());
+
             int start = Integer.parseInt(st.nextToken());
             int end;
             for(int j = 1; j < k; j++) {
