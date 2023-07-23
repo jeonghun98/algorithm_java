@@ -1,4 +1,4 @@
-package algorithm_java.투포인터;
+package algorithm_java.Two_Pointer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
