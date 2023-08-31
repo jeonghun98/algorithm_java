@@ -1,7 +1,7 @@
 package algorithm_java.SegmentTree;
 import java.util.*;
 import java.io.*;
-
+// Baekjoon Online Judge 2042 구간 합 구하기
 public class bj2042{
     static class segmentTree{
         long tree[];
@@ -22,7 +22,6 @@ public class bj2042{
             if(idx < start || end < idx) return;
 
             tree[node] += diff;
-
             if(start != end) {
                 update(node*2, start, (start+end)/2, idx, diff);
                 update(node*2+1, (start+end)/2+1, end, idx, diff);
@@ -52,7 +51,7 @@ public class bj2042{
         for(int i = 1; i <= n; i++){
             arr[i] = Long.parseLong(br.readLine());
         }
-
+        // init(long[] nums, int node, int start, int end)
         stree.init(arr,1,1,n);
 
         for(int i = 0; i < m+k; i++){
@@ -63,9 +62,11 @@ public class bj2042{
             long b = Long.parseLong(st.nextToken());
 
             if(cmd == 1){
+                // update(int node, int start, int end, int idx, long diff)
                 stree.update(1,1,n,a,b-arr[a]);
                 arr[a] = b;
             }else{
+                // sum(int node, int start, int end, int left, int right)
                 sb.append(stree.sum(1,1,n,a,(int)b) +"\n");
             }
         }
