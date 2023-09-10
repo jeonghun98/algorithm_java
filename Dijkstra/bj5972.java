@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-// Baekjoon Online Judge 5962 택배 배송
-public class bj5962 {
+// Baekjoon Online Judge 5972 택배 배송
+public class bj5972 {
     static int n,m;
     static ArrayList<Node> list[];
     static class Node {
