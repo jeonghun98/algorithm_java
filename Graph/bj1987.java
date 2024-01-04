@@ -44,7 +44,7 @@ public class bj1987 {
         }
         // => 입력
 
-        result = Integer.MIN_VALUE;
+        result = 1;
         check[alphabet[0][0]-'A'] = true; // 말의 알파벳 체크
         move(0,0,1);    // 재귀함수 호출, 움직임은 현재 말의 칸도 포함하기 때문에 +1
         System.out.println(result);
