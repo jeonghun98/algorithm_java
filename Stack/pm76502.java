@@ -7,15 +7,13 @@ public class pm76502 {
         int answer = 0;
 
         Stack<Character> stack = new Stack<>();
-        int idx, len = s.length();
-        char c, tmp;
-        boolean check = true;
+        int len = s.length();
 
         for(int i = 0; i < len; i++) {
-            check = true;
+            boolean check = true;
             for(int j = 0; j < len; j++) {
-                idx = (i + j) % len;
-                c = s.charAt(idx);
+                int idx = (i + j) % len;
+                char c = s.charAt(idx);
                 if(c == '[' || c == '(' || c == '{') { stack.push(c); }
                 else {
                     if(stack.isEmpty()) {check = false; break;}
