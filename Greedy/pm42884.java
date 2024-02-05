@@ -7,7 +7,7 @@ class pm42884 {
         int answer = 1;
 
         Arrays.sort(routes, (o1, o2) -> o1[1] - o2[1]);
-        int cur = routes[0][1];
+        int cur = routes[0][1]; // 차량이 끝나는 구간을 기준으로 카메라 설치
 
         for(int r[] : routes) {
             if(r[0] > cur || r[1] < cur) {
