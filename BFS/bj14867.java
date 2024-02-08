@@ -16,7 +16,7 @@ public class bj14867 {
             this.b = b;
             this.cnt = cnt;
         }
-        // equals를 재정의한 클래스에는 hashCode도 반드시 재정의한다.
+        // equals를 재정의한 클래스에는 hashCode도 반드시 재정의
 
         // hashcode() 재정의 x ->
         // 같은 값 객체라도 해시값이 다를 수 있음. 따라서 HashTable에서 해당 객체가 저장된 버킷을 찾을 수 없다.
@@ -26,7 +26,7 @@ public class bj14867 {
         // hashcode()가 만든 해시값을 이용해 객체가 저장된 버킷을 찾을 수는 있지만
         // 해당 객체가 자신과 같은 객체인지 값을 비교할 수 없기 때문에 null을 리턴
 
-        // equals 하지 않으면 인스턴트는 오직 자기 자신하고만 같음
+        // 비교할 대상이 객체일 경우 객체의 주소를 이용하여 비교
         @Override
         public boolean equals(Object o) {
             Beaker b = (Beaker) o;
@@ -122,5 +122,5 @@ public class bj14867 {
         System.out.println(bfs());
     }
 }
-// 참고
-// https://velog.io/@sonypark/Java-equals-hascode-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C
+// 참고: https://velog.io/@sonypark/Java-equals-hascode-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%B4%EC%95%BC-%ED%95%A0%EA%B9%8C
+// 참고: https://inpa.tistory.com/entry/JAVA-☕-equals-hashCode-메서드-개념-활용-파헤치기 [Inpa Dev 👨‍💻:티스토리]
