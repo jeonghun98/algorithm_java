@@ -18,8 +18,7 @@ class pm43164 {
                 }
             }
             if(!find || alphaSeq) { // 처음 가능한 경로이거나 알파벳 순서가 앞선 경로
-                for(int i = 0; i < len; i++)
-                    answer[i+1] = tickets[seq[i]][1];
+                for(int i = 0; i < len; i++) answer[i+1] = tickets[seq[i]][1];
                 find = true;
             }
             return;
