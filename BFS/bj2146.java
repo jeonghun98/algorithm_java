@@ -110,6 +110,7 @@ public class bj2146 {
         }
 
         System.out.println(answer);
+        // 범위 체크 함수 빼면 => 메모리 초과
     }
 
 }
