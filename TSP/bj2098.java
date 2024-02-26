@@ -1,10 +1,11 @@
-package algorithm_java.Bitmasking;
+package algorithm_java.TSP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+// Baekjoon Online Judge 2098 외판원 순회
 public class bj2098 { // 외판원 순회 -> 비트 마스킹, DP, 백트래킹
 
 	static int n;
@@ -54,7 +55,6 @@ public class bj2098 { // 외판원 순회 -> 비트 마스킹, DP, 백트래킹
 		}
 		
 		System.out.println(tsp(1, 0));
-
 	}
 
 }
