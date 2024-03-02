@@ -39,7 +39,7 @@ public class bj9252 {
             }else if(dp[x][y]==dp[x][y-1]) {
                 y--;
             }else {
-                result[--LSC_len] += st1[y - 1];
+                result[--LSC_len] = st1[y - 1];
                 x--; y--;
             }
         }
