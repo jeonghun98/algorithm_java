@@ -1,4 +1,4 @@
-package algorithm_java.Binary_Search;
+package algorithm_java.BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
