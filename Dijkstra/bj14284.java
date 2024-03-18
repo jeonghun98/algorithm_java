@@ -10,15 +10,19 @@ public class bj14284 {
     static int n, m;
     static ArrayList<Node> list[];
     static final int MAX = Integer.MAX_VALUE;
-    static class Node{
+    static class Node implements Comparable<Node>{
         int idx, cost;
         public Node(int idx, int cost) {
             this.idx = idx;
             this.cost = cost;
         }
+        @Override
+        public int compareTo(Node o) {
+            return this.cost - o.cost;
+        }
     }
     public static int dijkstar(int start, int end) {
-        PriorityQueue<Node> pq = new PriorityQueue<>((o1, o2) -> o1.cost - o2.cost);
+        PriorityQueue<Node> pq = new PriorityQueue<>();
         pq.add(new Node(start,0));
 
         int dis[] = new int[n+1];
