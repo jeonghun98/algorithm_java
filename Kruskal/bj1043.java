@@ -1,4 +1,4 @@
-package algorithm_java.Hash;
+package algorithm_java.Kruskal;
 
 import java.io.BufferedReader;
 import java.io.IOException;
