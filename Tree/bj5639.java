@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 
 // Baekjoon Online Judge 5639 이진 검색 트리
 public class bj5639 {
+    static int[] tree = new int[10001];
+    static StringBuilder sb;
     static class Node {
         int val;
         Node left, right;
@@ -28,16 +30,32 @@ public class bj5639 {
             }
         }
     }
+
     public static void postOrder(Node cur) {
         if(cur == null) return;
         postOrder(cur.left);
         postOrder(cur.right);
-        System.out.println(cur.val);
+        sb.append(cur.val + "\n");
     }
+
+    public static void postOrder(int root, int end) {
+        if(root > end) {
+            return;
+        }
+        int mid = root+1;
+        while(mid <= end && tree[mid] < tree[root]) {
+            mid++;
+        }
+        postOrder(root+1, mid-1);
+        postOrder(mid, end);
+        sb.append(tree[root] + "\n");
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Node root = new Node(Integer.parseInt(br.readLine()));
+        sb = new StringBuilder();
 
+        Node root = new Node(Integer.parseInt(br.readLine()));
         String s;
         while(true) {
             s = br.readLine();
@@ -45,5 +63,16 @@ public class bj5639 {
             root.insert(Integer.parseInt(s));
         }
         postOrder(root);
+
+//        String s;
+//        int idx = 0;
+//        while(true) {
+//            s = br.readLine();
+//            if(s == null || s.equals("")) break;
+//            tree[idx++] = Integer.parseInt(s);
+//        }
+//        postOrder(0, idx-1);
+
+        System.out.print(sb.toString());
     }
 }
