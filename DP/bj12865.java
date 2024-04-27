@@ -37,15 +37,19 @@ public class bj12865 {
         
         weight = new int[n+1];
         value = new int[n+1];
-        
+
+		int dp1[] = new int[k+1];
         for(int i = 1; i < n+1; i++) {
         	st = new StringTokenizer(br.readLine());
-        	weight[i] = Integer.parseInt(st.nextToken());
-        	value[i] = Integer.parseInt(st.nextToken());
+//        	weight[i] = Integer.parseInt(st.nextToken());
+//        	value[i] = Integer.parseInt(st.nextToken());
+			int weight = Integer.parseInt(st.nextToken());
+        	int value = Integer.parseInt(st.nextToken());
+			for(int j = k; j >= weight; j--) {
+				dp1[j] = Math.max(dp1[j], dp1[j-weight]+ value);
+			}
         }
-        
-        System.out.println(knapsack());
-        
+		System.out.println(dp1[k]);
+//        System.out.println(knapsack());
 	}
-
 }
