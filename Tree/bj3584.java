@@ -1,4 +1,4 @@
-package algorithm_java.DFS;
+package algorithm_java.Tree;
 
 import java.io.BufferedReader;
 import java.io.IOException;
