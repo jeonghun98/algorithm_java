@@ -1,4 +1,4 @@
-package algorithm_java;
+package algorithm_java.Greedy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,9 +21,7 @@ public class bj1339 {
                 num *= 10;
             }
         }
-
         Arrays.sort(alpha);
-//        System.out.println(Arrays.toString(alpha));
 
         int result = 0;
         int num = 9;
